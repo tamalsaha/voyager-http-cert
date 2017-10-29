@@ -1,6 +1,6 @@
 # voyager-http-cert
 
-## Phase 1: Deploy Voyage operator
+## Deploy Voyage operator
 
 1. First deploy Voyager operator following instructions here: https://github.com/appscode/voyager/blob/master/docs/install.md
 
