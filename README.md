@@ -92,6 +92,10 @@ Events:
   20m		20m		1	voyager operator			Normal		IssueSuccessful	Successfully issued certificate
 ```
 
+If you look at the Ingress, you should see that `/.well-known/acme-challenge/` path has been added to rules. It should look like https://github.com/tamalsaha/voyager-http-cert/blob/master/ing-with-acme-path.yaml
+
+If you check the configmap `voyager-test-ingress`, you should see a key `haproxy.cfg` with the value similar to https://github.com/tamalsaha/voyager-http-cert/blob/master/haproxy-with-acme.cfg
+
 ## Update Ingress to use TLS
 
 9. Now edit the Ingress to add `spec.tls` section.
@@ -108,7 +112,12 @@ spec:
       name: kitecicom
 ```
 
-Now wait several seconds for HAProxy to reconfigure. Now try the following commands:
+After editing, your Ingress should look similar to https://github.com/tamalsaha/voyager-http-cert/blob/master/ing-tls-acme.yaml
+
+10. Now wait several seconds for HAProxy to reconfigure. If you check the configmap `voyager-test-ingress`, you should see a key `haproxy.cfg` with the value similar to https://github.com/tamalsaha/voyager-http-cert/blob/master/haproxy-ssl.cfg
+
+
+Now try the following commands:
 
 ```console
 $ curl -vv http://kiteci.com
