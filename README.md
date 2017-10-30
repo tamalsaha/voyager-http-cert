@@ -38,7 +38,7 @@ $ dig +short kiteci.com
 
 ## Create Certificate
 
-7. Create a secret to provide ACME user email. Run the following command:
+7. Create a secret to provide ACME user email. Change the email to a valid email address and run the following command:
 
 ```console
 kubectl create secret generic acme-account --from-literal=ACME_EMAIL=me@example.com
